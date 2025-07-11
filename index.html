@@ -38,14 +38,19 @@
 
       camera.position.set(0, 0, 5);
 
-      const loader = new THREE.GLTFLoader();
-      loader.load('myModel.glb', function (gltf) {
-        const model = gltf.scene;
-        model.scale.set(1.5, 1.5, 1.5);
-        scene.add(model);
-      }, undefined, function (error) {
-        console.error("Model failed to load:", error);
-      });
+const loader = new THREE.GLTFLoader();
+loader.load(
+  'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF-Binary/DamagedHelmet.glb',
+  function (gltf) {
+    const model = gltf.scene;
+    model.scale.set(2, 2, 2);
+    scene.add(model);
+  },
+  undefined,
+  function (error) {
+    console.error("Model failed to load:", error);
+  }
+);
 
       function animate() {
         requestAnimationFrame(animate);
